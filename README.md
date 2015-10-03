@@ -1,1 +1,18 @@
-# BetterTicTacToe
+### Tic Tac Toe ###
+By Jacob Moyle, 2015
+
+---
+
+A **nearly** unbeatable Tic Tac Toe game.
+
+#### Instructions:
+* Clone this repo:
+  * Run `git clone https://github.com/jacobmoyle/TicTacToe`
+* From the source directory:
+  * Run `ruby runner.rb`
+
+#### About:
+* This game has three game modes:
+  * Computer v. Computer
+  * Player v. Player
+  * Player v. Computer
