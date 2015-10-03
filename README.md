@@ -8,7 +8,7 @@ An unbeatable Tic Tac Toe computer.
 #### Instructions:
 * Clone this repo:
   * Run `git clone https://github.com/jacobmoyle/TicTacToe`
-* From the source directory:
+* From the app directory:
   * Run `ruby runner.rb`
 
 #### About:
