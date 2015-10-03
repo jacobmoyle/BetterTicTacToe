@@ -1,3 +1,3 @@
-require_relative '../app/ai'
-require_relative '../app/game'
-require_relative '../app/human'
+require 'ai'
+require 'game'
+require 'human'
