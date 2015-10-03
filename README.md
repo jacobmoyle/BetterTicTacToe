@@ -3,7 +3,7 @@ By Jacob Moyle, 2015
 
 ---
 
-A **nearly** unbeatable Tic Tac Toe game.
+An unbeatable Tic Tac Toe computer.
 
 #### Instructions:
 * Clone this repo:
