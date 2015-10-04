@@ -47,6 +47,6 @@ class Ai
   end
 
   def move(board)
-    rand(0..(board.length))
+    4
   end
 end
