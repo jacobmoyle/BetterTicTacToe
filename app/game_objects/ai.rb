@@ -45,4 +45,8 @@ class Ai
     @marker = hash[:marker]
     @enemy_marker = hash[:enemy_marker]
   end
+
+  def move
+    return 5
+  end
 end
