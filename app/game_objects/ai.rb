@@ -39,8 +39,10 @@ Once I decided on a basic pattern of calculation, I could have solved time
 =end
 
 class Ai
-  attr_accessor :marker
+  attr_accessor :marker, :enemy_marker
+
   def initialize(hash)
     @marker = hash[:marker]
+    @enemy_marker = hash[:enemy_marker]
   end
 end
