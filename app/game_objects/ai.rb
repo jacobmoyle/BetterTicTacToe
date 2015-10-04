@@ -37,3 +37,10 @@ ai will return the index of the best move
 Once I decided on a basic pattern of calculation, I could have solved time
 
 =end
+
+class Ai
+  attr_accessor :marker
+  def initialize(hash)
+    @marker = hash[:marker]
+  end
+end
