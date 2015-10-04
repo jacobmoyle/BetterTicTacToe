@@ -29,6 +29,12 @@ describe Ai do
     it "returns a counter corner move" do
       expect(@comp.move(["O",1,2,3,"X",5,6,7,8])).to eq(8)
     end
+    it "returns the winning move" do
+      expect(@comp.move(["X",1,"X","O","X",5,"O",7,"O"])).to eq(1)
+    end
+    it "returns the blocking move" do
+      expect(@comp.move([0,1,"X","O","X",5,"O",7,8])).to eq(0)
+    end
   end
 
 end
