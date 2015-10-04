@@ -6,20 +6,30 @@ class Ai
     @enemy_marker = hash[:enemy_marker]
   end
 
+  # The higher a move scores the more likely it will be chosen.
+  # Move is given a score based on the how few or many markers are on a 'line'
+  # A 'line' is a method of winning. For example, given the board:
+
+  # 0,1,2,
+  # 3,4,5,
+  # 6,7,8
+
+  # 0,4,8 would be a diagonal line.
+
   def move(board)
     moves = [0,1,2,3,4,5,6,7,8]
 
     board.each_with_index do |contents, index|
-      # tests if spot is empty
+      # tests if move is viable
       if contents.class == Fixnum
-        # The spots points are calculated based on what rows it belongs to
+        # The move's points are calculated based on what 'lines' intersect it.
         case index
         when 0
           moves[index] = calculate_score([
                             [board[0],board[4],board[8]], # Row B
                             [board[0],board[1],board[2]], # Row F
                             [board[0],board[3],board[6]]  # Row D
-                          ])
+                        ])
         when 1
           moves[index] = calculate_score([
                           [board[0],board[1],board[2]], # Row F
