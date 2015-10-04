@@ -46,7 +46,7 @@ class Ai
     @enemy_marker = hash[:enemy_marker]
   end
 
-  def move
-    return 5
+  def move(board)
+    rand(0..(board.length))
   end
 end

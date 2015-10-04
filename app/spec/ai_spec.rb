@@ -14,19 +14,14 @@ describe Ai do
   end
 
   describe "#move" do
-    it "returns an integer less than or equal 9" do
-      outcomes = []
+    it "returns an index of a given array" do
+      array = ["T","T","T"]
+      responses = []
       1000.times do
-        outcomes << @comp.move
+        responses << @comp.move(array)
       end
-      expect((outcomes.max <= 9)).to be(true)
-    end
-    it "returns an integer greater than or equal 0" do
-      outcomes = []
-      1000.times do
-        outcomes << @comp.move
-      end
-      expect((outcomes.min >= 0)).to be(true)
+      expect(responses.max <= array.length).to be(true)
+      expect(responses.min >= 0).to be(true)
     end
   end
 
