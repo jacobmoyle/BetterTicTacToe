@@ -41,7 +41,7 @@ class Ai
   end
 
   def move(board)
-    moves = Hash.new
+    moves = [0,1,2,3,4,5,6,7,8]
 
     board.each_with_index do |contents, index|
       # tests if spot is empty
@@ -49,62 +49,62 @@ class Ai
         # The spots points are calculated based on what rows it belongs to
         case index
         when 0
-          moves[index.to_s] = calculate_score([
-                                [board[0],board[4],board[8]], # Row B
-                                [board[0],board[1],board[2]], # Row F
-                                [board[0],board[3],board[6]]  # Row D
-                              ])
+          moves[index] = calculate_score([
+                            [board[0],board[4],board[8]], # Row B
+                            [board[0],board[1],board[2]], # Row F
+                            [board[0],board[3],board[6]]  # Row D
+                          ])
         when 1
-          moves[index.to_s] = calculate_score([
-                                [board[0],board[1],board[2]], # Row F
-                                [board[1],board[4],board[7]]  # Row C
-                              ])
+          moves[index] = calculate_score([
+                            [board[0],board[1],board[2]], # Row F
+                          [board[1],board[4],board[7]]  # Row C
+                          ])
         when 2
-          moves[index.to_s] = calculate_score([
-                                [board[2],board[4],board[6]], # Row A
-                                [board[0],board[1],board[2]], # Row F
-                                [board[2],board[5],board[8]]  # Row E
-                              ])
+          moves[index] = calculate_score([
+                          [board[2],board[4],board[6]], # Row A
+                            [board[0],board[1],board[2]], # Row F
+                          [board[2],board[5],board[8]]  # Row E
+                          ])
         when 3
-          moves[index.to_s] = calculate_score([
-                                [board[3],board[4],board[5]], # Row G
-                                [board[0],board[3],board[6]]  # Row D
-                              ])
+          moves[index] = calculate_score([
+                          [board[3],board[4],board[5]], # Row G
+                            [board[0],board[3],board[6]]  # Row D
+                          ])
         when 4
-          moves[index.to_s] = calculate_score([
-                                [board[2],board[4],board[6]], # Row A
-                                [board[0],board[4],board[8]], # Row B
-                                [board[1],board[4],board[7]], # Row C
-                                [board[3],board[4],board[5]]  # Row G
-                              ])
+          moves[index] = calculate_score([
+                          [board[2],board[4],board[6]], # Row A
+                            [board[0],board[4],board[8]], # Row B
+                          [board[1],board[4],board[7]], # Row C
+                          [board[3],board[4],board[5]]  # Row G
+                          ])
         when 5
-          moves[index.to_s] = calculate_score([
-                                [board[3],board[4],board[5]], # Row G
-                                [board[2],board[5],board[8]]  # Row E
-                              ])
+          moves[index] = calculate_score([
+                          [board[3],board[4],board[5]], # Row G
+                          [board[2],board[5],board[8]]  # Row E
+                          ])
         when 6
-          moves[index.to_s] = calculate_score([
-                                [board[2],board[4],board[6]], # Row A
-                                [board[0],board[3],board[6]], # Row D
-                                [board[6],board[7],board[8]]  # Row H
-                              ])
+          moves[index] = calculate_score([
+                          [board[2],board[4],board[6]], # Row A
+                            [board[0],board[3],board[6]], # Row D
+                          [board[6],board[7],board[8]]  # Row H
+                          ])
         when 7
-          moves[index.to_s] = calculate_score([
-                                [board[1],board[4],board[7]], # Row C
-                                [board[6],board[7],board[8]]  # Row H
-                              ])
+          moves[index] = calculate_score([
+                          [board[1],board[4],board[7]], # Row C
+                          [board[6],board[7],board[8]]  # Row H
+                          ])
         when 8
-          moves[index.to_s] = calculate_score([
-                                [board[6],board[7],board[8]], # Row H
-                                [board[2],board[5],board[8]], # Row E
-                                [board[0],board[4],board[8]]  # Row B
-                              ])
+          moves[index] = calculate_score([
+                          [board[6],board[7],board[8]], # Row H
+                          [board[2],board[5],board[8]], # Row E
+                            [board[0],board[4],board[8]]  # Row B
+                          ])
         end
       else
-        moves[index.to_s] = 0
+        moves[index] = 0
       end
-    end
-    puts "HASH IS #{moves}"
+    each_with_index
+    puts "ARRAY IS #{moves}"
   end
 
   private
@@ -141,4 +141,4 @@ ai.move([
   0,1,2,
   3,"X",5,
   6,7,"O"
-  ])
+])
