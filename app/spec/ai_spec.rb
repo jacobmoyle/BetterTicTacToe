@@ -26,6 +26,9 @@ describe Ai do
     it "returns 4 when available" do
       expect(@comp.move(@board)).to eq(4)
     end
+    it "returns a counter corner move" do
+      expect(@comp.move(["O",1,2,3,"X",5,6,7,8])).to eq(8)
+    end
   end
 
 end
