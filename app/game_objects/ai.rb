@@ -1,7 +1,8 @@
 class Ai
-  attr_accessor :marker, :enemy_marker
+  attr_accessor :marker, :enemy_marker, :name
 
   def initialize(hash)
+    @name = hash[:name]
     @marker = hash[:marker]
     @enemy_marker = hash[:enemy_marker]
   end

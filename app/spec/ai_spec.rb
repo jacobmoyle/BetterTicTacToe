@@ -2,15 +2,17 @@ require 'spec_helper'
 
 describe Ai do
   before :each do
-    @comp = Ai.new(marker:"X", enemy_marker: "O")
+    @comp = Ai.new(marker:"X", enemy_marker: "O", name: "Computer")
     @board = [0,1,2,3,4,5,6,7,8]
   end
 
-  it "knows its own marker" do
+  it "has a marker" do
     expect(@comp.marker).to eq("X")
   end
-
-  it "knows the opponents marker" do
+  it "has a name" do
+    expect(@comp.name).to eq("Computer")
+  end
+  it "has the enemy marker" do
     expect(@comp.enemy_marker).to eq("O")
   end
 

@@ -1,3 +1,3 @@
 require_relative '../game_objects/ai'
-require_relative '../game/'
+require_relative '../game_objects/human'
 # require 'human'
