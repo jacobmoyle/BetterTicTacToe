@@ -1,10 +1,10 @@
 class Ai
   attr_accessor :marker, :enemy_marker, :name
 
-  def initialize(hash)
-    @name = hash[:name]
-    @marker = hash[:marker]
-    @enemy_marker = hash[:enemy_marker]
+  def initialize(params)
+    @name = params[:name]
+    @marker = params[:marker]
+    @enemy_marker = params[:enemy_marker]
   end
 
   # The higher a move scores the more likely it will be chosen.
@@ -25,6 +25,7 @@ class Ai
       if contents.class == Fixnum
         # The move's points are calculated based on what 'lines' intersect it.
         case index
+        # The following array calls are confusing. Need to refactor, call them 'diagonal-left' for example.
         when 0
           moves[index] = calculate_score([
                             [board[0],board[4],board[8]], # Row B
