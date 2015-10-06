@@ -1,10 +1,10 @@
 class Ai
   attr_accessor :marker, :enemy_marker, :name
 
-  def initialize(hash)
-    @name = hash[:name]
-    @marker = hash[:marker]
-    @enemy_marker = hash[:enemy_marker]
+  def initialize(params)
+    @name = params[:name]
+    @marker = params[:marker]
+    @enemy_marker = params[:enemy_marker]
   end
 
   # The higher a move scores the more likely it will be chosen.
