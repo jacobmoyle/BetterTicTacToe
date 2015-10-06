@@ -1,0 +1,35 @@
+Program Psuedocode
+
+Ai
+  - provides move [done]
+  - tracks own name
+  - tracks own marker [done]
+  - tracks enemy marker [done]
+
+Human
+  - tracks own name
+  - tracks own marker
+
+Rules
+  - dictates if game is a tie
+  - dictates if game is over
+  - decides who won
+  - dictates if a move is invalid
+
+Game
+  - generates players
+    - sets player markers
+    - sets player names
+    - sets/updates who goes first
+  - generates an 'empty' board
+  - tracks board
+  - updates board
+
+Terminal_UI
+  - Outputs all print methods
+  - Provides user input
+
+Runner
+  - loops until game is over
+  - provides output via Terminal_UI
+  - passes information to Game

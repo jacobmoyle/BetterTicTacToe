@@ -81,7 +81,7 @@ class Ai
         moves[index] = 0
       end
     end
-
+    # Purposely not worrying about handling a full board.
     moves.index(moves.max)
   end
 

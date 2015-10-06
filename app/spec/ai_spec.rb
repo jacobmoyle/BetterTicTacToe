@@ -35,6 +35,7 @@ describe Ai do
     it "returns the blocking move" do
       expect(@comp.move([0,1,"X","O","X",5,"O",7,8])).to eq(0)
     end
+
   end
 
 end
