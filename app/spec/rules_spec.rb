@@ -15,12 +15,9 @@ describe Rules do
   #   end
   # end
 
-  describe '#game_over?' do
-    it 'returns false if the game isn\'t over' do
-      expect(rules.game_over?([0,1,2,3,4,5,6,7,8])).to eq(false)
-    end
-    it 'should return true if a board is full' do
-      expect(rules.game_over?(['X','X','O','X','O','X','X','X','X'])).to eq(true)
+  describe '#winner' do
+    it 'returns false if there is no winner' do
+
     end
   end
   #   - decides who won
