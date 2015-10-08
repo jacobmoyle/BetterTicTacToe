@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Rules do
   let(:rules) { Rules.new }
+  let(:player_marker) { 'X' }
 
   # describe '#tie?' do
   #   it 'returns false if game isn\'t over' do
@@ -15,9 +16,34 @@ describe Rules do
   #   end
   # end
 
-  describe '#winner' do
-    it 'returns false if there is no winner' do
-
+  describe '#winner?' do
+    context 'when there is no winner' do
+      it 'and game isn\'t over - returns false' do
+        board = [
+          0,1,2,
+          3,4,5,
+          6,7,8
+        ]
+        expect(rules.winner?(board: board, marker: player_marker)).to eq(false)
+      end
+      it 'and game is tied - returns false' do
+        board = [
+          'O','X','X',
+          'X','O','O',
+          'O','O','X'
+        ]
+        expect(rules.winner?(board: board, marker: player_marker)).to eq(false)
+      end
+    end
+    context 'when a player has won' do
+      it 'returns true' do
+        board = [
+          'O','X','X',
+          'X','O','X',
+           6 ,'O','X'
+        ]
+        expect(rules.winner?(board: board, marker: player_marker)).to eq(true)
+      end
     end
   end
   #   - decides who won
