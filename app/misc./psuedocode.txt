@@ -26,6 +26,7 @@ Game
   - updates board
 
 Terminal_UI
+  - use colorize gem
   - Outputs all print methods
   - Provides user input
 
@@ -33,3 +34,9 @@ Runner
   - loops until game is over
   - provides output via Terminal_UI
   - passes information to Game
+
+Gems
+  - Nyan cat rspec
+  - colorize
+  - find a tic tac toe text image
+
