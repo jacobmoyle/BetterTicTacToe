@@ -1,20 +1,20 @@
 Program Psuedocode
 
-Ai
+Ai < Player
   - provides move [done]
   - tracks own name
   - tracks own marker [done]
   - tracks enemy marker [done]
 
-Human
+Player
   - tracks own name
   - tracks own marker
 
 Rules
-  - dictates if game is a tie
+  - dictates if game is a tie [done]
   - dictates if game is over
-  - decides who won
-  - dictates if a move is invalid
+  - decides who won [done]
+  - dictates if a move is invalid [done]
 
 Game
   - generates players
