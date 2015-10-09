@@ -1,4 +1,4 @@
-class Human
+class Player
   attr_reader :name, :marker
 
   def initialize(params)

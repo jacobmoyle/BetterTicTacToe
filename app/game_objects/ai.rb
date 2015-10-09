@@ -1,9 +1,10 @@
-class Ai
+require_relative 'player'
+
+class Ai < Player
   attr_accessor :marker, :enemy_marker, :name
 
   def initialize(params)
-    @name = params[:name]
-    @marker = params[:marker]
+    super
     @enemy_marker = params[:enemy_marker]
   end
 
