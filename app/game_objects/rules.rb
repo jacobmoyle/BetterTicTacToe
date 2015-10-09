@@ -8,17 +8,14 @@ class Rules
   end
 
   def winner?(params) # Can I yield to the player marker?
-
     if @win_lines.any? { |line_indices| line_indices.all? { |index| params[:board][index] == params[:marker] } }
       return true
     else
       return false
     end
-
   end
 
   def tie?(params)
-
     markers = params[:board].uniq
 
     if markers.length == 2 && !(markers.any? { |marker| winner?(board: params[:board], marker: marker) })
@@ -26,11 +23,13 @@ class Rules
     else
       return false
     end
-
   end
 
-  # A board can have Fixnum and be over (someone won)
-  # A board can be full with no winner (tie)
-  # A board can be full with a winner
-  # A board can have Fixnum and no winner (game not over)
+  def valid?(params)
+    if params[:move].between?(0,8) && params[:board][params[:move]].class == Fixnum
+      true
+    else
+      false
+    end
+  end
 end

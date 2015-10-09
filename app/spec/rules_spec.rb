@@ -37,5 +37,27 @@ describe Rules do
     end
 
   end
-  # - dictates if a move is invalid
+
+  describe '#valid?' do
+
+    context 'returns true when' do
+      it 'the input is valid' do
+        expect(rules.valid?(move: 0, board: [0,1,2,3,4,5,6,7,8])).to eq(true)
+      end
+    end
+
+    context 'returns false when' do
+      it 'the input is larger than board length' do
+        expect(rules.valid?(move: 9, board: [0,1,2,3,4,5,6,7,8])).to eq(false)
+      end
+      it 'the input is smaller than the board length' do
+        expect(rules.valid?(move: -5, board: [0,1,2,3,4,5,6,7,8])).to eq(false)
+      end
+      it 'the move has been taken' do
+        expect(rules.valid?(move: 4, board: [0,1,2,3,'4',5,6,7,8])).to eq(false)
+      end
+    end
+
+  end
+
 end

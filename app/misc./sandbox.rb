@@ -19,4 +19,34 @@
 
 # find_winner(board: board, player_marker: player)
 
+# class Human
+#   attr_reader :alive
+#   def initialize
+#     @alive = true
+#   end
 
+#   def speak
+#     puts "My name is #{@name}"
+#   end
+# end
+
+# class Jacob < Human
+#   def initialize
+#     super
+#     @name = 'Jacob'
+#   end
+
+# end
+
+# test = Jacob.new
+# p test.alive
+# test.speak
+
+# test2 = Human.new
+# test2.speak
+
+if 0.between?(0,8)
+  p "YES"
+else
+  p "NO!"
+end
