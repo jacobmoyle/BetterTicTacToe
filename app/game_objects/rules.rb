@@ -7,7 +7,7 @@ class Rules
     ]
   end
 
-  def winner?(params) # Can I yield to the player marker?
+  def winner?(params)
     if @win_lines.any? { |line_indices| line_indices.all? { |index| @board[index] == params[:marker] } }
       return true
     else
