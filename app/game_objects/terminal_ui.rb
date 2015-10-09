@@ -13,7 +13,7 @@ module UI
   end
 
   def self.get_mode
-    UI.print( "Please choose a game type:" )
+    UI.puts( "Please choose a game type:" )
     UI.puts( "Computer v. Computer - Enter 1" )
     UI.puts( "Player v. Player - Enter 2" )
     UI.puts( "Player v. Computer - Enter 3" )
@@ -21,16 +21,13 @@ module UI
 
     case mode
       when "1"
-        puts ""
-        UI.print( "Computer v. Computer. confirmed." )
+        UI.puts( "Computer v. Computer. confirmed." )
         return "1"
       when "2"
-        puts ""
-        UI.print( "Human v. Human confirmed." )
+        UI.puts( "Human v. Human confirmed." )
         return "2"
       when "3"
-        puts ""
-        UI.print( "Human v. Computer confirmed." )
+        UI.puts( "Human v. Computer confirmed." )
         return "3"
       else
         puts "~~~~~~~~~~~~~~"
@@ -42,17 +39,15 @@ module UI
   end
 
   def self.get_marker( playername )
-    puts ""
-    UI.print( "Enter a marker for #{playername}:" )
+    UI.puts( "Enter a marker for #{playername}:" )
 
     return user_input
   end
 
   def self.get_turn_order(player1, player2)
-    puts ""
-    UI.print( "Which player goes first?" )
-    UI.print( "#{player1} - Enter 1" )
-    UI.print( "#{player2} - Enter 2" )
+    UI.puts( "Which player goes first?" )
+    UI.puts( "#{player1} - Enter 1" )
+    UI.puts( "#{player2} - Enter 2" )
 
     choice = user_input
 
@@ -71,20 +66,20 @@ module UI
   end
 
   def self.print_board( board )
-    puts ""
-    UI.print( "|_#{board[0]}_|_#{board[1]}_|_#{board[2]}_||_#{board[3]}_|_#{board[4]}_|_#{board[5]}_||_#{board[6]}_|_#{board[7]}_|_#{board[8]}_|" )
-    puts ""
+    UI.puts( "#{board[0]} | #{board[1]} | #{board[2]}
+      ---------
+      #{board[3]} | #{board[4]} | #{board[5]}
+      ---------
+      #{board[6]} | #{board[7]} | #{board[8]}" )
   end
 
   def self.game_over
-    puts ""
-    UI.print( "============ Game Over ============" )
+    UI.puts( "============ Game Over ============" )
   end
 
   def self.print_move( move, player )
-    puts ""
-    UI.print( "#{player.name} has selected #{move}." )
-    UI.print( "Board updated:" )
+    UI.puts( "#{player.name} has selected #{move}." )
+    UI.puts( "Board updated:" )
   end
 
   def self.print( string )
@@ -103,8 +98,7 @@ module UI
   end
 
   def self.new_player_name( default_name )
-    puts ""
-    UI.print( "Please provide a name for #{default_name}:" )
+    UI.puts( "Please provide a name for #{default_name}:" )
 
     return user_input
   end
@@ -116,7 +110,7 @@ module UI
   end
 
   def self.play_again?
-    UI.print( "Play Again?" )
+    UI.puts( "Play Again?" )
     UI.print( "Y / N" )
 
     if UI.user_input == "Y"
