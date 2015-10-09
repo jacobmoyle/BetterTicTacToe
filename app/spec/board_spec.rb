@@ -4,6 +4,12 @@ describe Game do
   let(:game) { Game.new }
   let(:player_marker) { 'X' }
 
+  describe '#board' do
+    it 'initializes as "empty" board with corresponding integers upon creation' do
+      newgame = Game.new
+      expect(newgame.board.all?{ |item| item.class == Fixnum }).to eq(true)
+    end
+  end
 
   # Inherited from Rules
   describe '#tie?' do

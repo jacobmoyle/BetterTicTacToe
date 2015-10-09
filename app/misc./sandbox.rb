@@ -45,8 +45,9 @@
 # test2 = Human.new
 # test2.speak
 
-if 0.between?(0,8)
-  p "YES"
-else
-  p "NO!"
-end
+# if 0.between?(0,8)
+#   p "YES"
+# else
+#   p "NO!"
+# end
+

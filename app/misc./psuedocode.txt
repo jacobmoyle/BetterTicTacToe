@@ -6,10 +6,6 @@ Ai < Player
   - tracks own marker [done]
   - tracks enemy marker [done]
 
-Player
-  - tracks own name [done]
-  - tracks own marker [done]
-
 Rules
   - dictates if game is a tie [done]
   - dictates if game is over
@@ -21,8 +17,7 @@ Game
     - sets player markers
     - sets player names
     - sets/updates who goes first
-  - generates an 'empty' board
-  - tracks board
+  - generates an 'empty' board [done]
   - updates board
 
 Terminal_UI
@@ -40,3 +35,8 @@ Gems
   - colorize
   - find a tic tac toe text image
 
+** Completed && Tested **
+
+Player
+  - tracks own name [done]
+  - tracks own marker [done]
