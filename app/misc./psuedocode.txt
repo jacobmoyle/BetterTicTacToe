@@ -7,8 +7,8 @@ Ai < Player
   - tracks enemy marker [done]
 
 Player
-  - tracks own name
-  - tracks own marker
+  - tracks own name [done]
+  - tracks own marker [done]
 
 Rules
   - dictates if game is a tie [done]

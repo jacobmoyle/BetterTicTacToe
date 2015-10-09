@@ -1,3 +1,9 @@
-# Player
-#   - tracks own name
-#   - tracks own marker
+class Player
+  attr_reader :name, :marker
+
+  def initialize(params)
+    @name = params[:name]
+    @marker = params[:marker]
+  end
+
+end
