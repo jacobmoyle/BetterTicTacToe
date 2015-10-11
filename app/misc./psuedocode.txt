@@ -12,14 +12,6 @@ Rules
   - decides who won [done]
   - dictates if a move is invalid [done]
 
-Game
-  - generates players
-    - sets player markers
-    - sets player names
-    - sets/updates who goes first
-  - generates an 'empty' board [done]
-  - updates board
-
 Terminal_UI
   - use colorize gem
   - Outputs all print methods
@@ -40,3 +32,11 @@ Gems
 Player
   - tracks own name [done]
   - tracks own marker [done]
+
+Game
+  - generates players [done]
+    - sets player markers [done]
+    - sets player names [done]
+    - sets/updates who goes first [done]
+  - generates an 'empty' board [done]
+  - updates board [done]

@@ -50,4 +50,11 @@
 # else
 #   p "NO!"
 # end
-
+# begin
+#   raise 'Test Error'
+#   rescue Exception => error
+#   p error.class
+# end
+# if error
+#   p error.message
+# end

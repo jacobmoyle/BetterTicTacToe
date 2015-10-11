@@ -25,11 +25,12 @@ class Rules
     end
   end
 
-  def valid?(params) # A board can be in control of this
+  def valid?(params)
     if params[:move].between?(0,8) && @board[params[:move]].class == Fixnum
-      true
+      return true
     else
-      false
+      return false
     end
   end
+
 end

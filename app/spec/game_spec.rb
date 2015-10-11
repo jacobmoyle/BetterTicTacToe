@@ -1,13 +1,11 @@
 require 'spec_helper'
 
 describe Game do
-  let(:game) { Game.new }
-  let(:player_marker) { 'X' }
+  let(:game) { Game.new(player_one: Player.new(name: "Jake", marker: "X"), player_two: Player.new(name: "Liz", marker: "O")) }
 
   describe '#board' do
     it 'initializes as "empty" board with corresponding integers upon creation' do
-      newgame = Game.new
-      expect(newgame.board.all?{ |item| item.class == Fixnum }).to eq(true)
+      expect(game.board.all?{ |item| item.class == Fixnum }).to eq(true)
     end
   end
 
@@ -33,18 +31,18 @@ describe Game do
     context 'when there is no winner' do
       it 'and game isn\'t over - returns false' do
         game.board = [0,1,2,3,4,5,6,7,8]
-        expect(game.winner?(marker: player_marker)).to eq(false)
+        expect(game.winner?(marker: game.current_player.marker)).to eq(false)
       end
       it 'and game is tied - returns false' do
         game.board = ['O','X','X','X','O','O','O','O','X']
-        expect(game.winner?(marker: player_marker)).to eq(false)
+        expect(game.winner?(marker: game.current_player.marker)).to eq(false)
       end
     end
 
     context 'when a player has won' do
       it 'returns true' do
         game.board = ['O','X','X','X','O','X',6 ,'O','X']
-        expect(game.winner?(marker: player_marker)).to eq(true)
+        expect(game.winner?(marker: game.current_player.marker)).to eq(true)
       end
     end
 

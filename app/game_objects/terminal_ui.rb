@@ -22,13 +22,13 @@ module UI
     case mode
       when "1"
         UI.puts( "Computer v. Computer. confirmed." )
-        return "1"
+        return "CvC"
       when "2"
         UI.puts( "Human v. Human confirmed." )
-        return "2"
+        return "HvH"
       when "3"
         UI.puts( "Human v. Computer confirmed." )
-        return "3"
+        return "HvC"
       else
         puts "~~~~~~~~~~~~~~"
         puts "Invalid input."
