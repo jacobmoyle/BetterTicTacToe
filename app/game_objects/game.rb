@@ -5,6 +5,7 @@ class Game < Rules
   attr_reader :current_player
 
   def initialize(params)
+    # Empty parenthesis do not send method args to super method
     super()
     @current_player = params[:player_one]
     @next_player = params[:player_two]
