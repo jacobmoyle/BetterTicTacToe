@@ -1,7 +1,7 @@
 require_relative 'player'
 
 class Ai < Player
-  attr_accessor :marker, :enemy_marker, :name
+  attr_accessor :enemy_marker
 
   def initialize(params)
     super

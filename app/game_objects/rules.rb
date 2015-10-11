@@ -7,18 +7,18 @@ class Rules
     ]
   end
 
-  def winner?(params) # Can I yield to the player marker?
-    if @win_lines.any? { |line_indices| line_indices.all? { |index| params[:board][index] == params[:marker] } }
+  def winner?(params)
+    if @win_lines.any? { |line_indices| line_indices.all? { |index| @board[index] == params[:marker] } }
       return true
     else
       return false
     end
   end
 
-  def tie?(params)
-    markers = params[:board].uniq
+  def tie?
+    markers = @board.uniq
 
-    if markers.length == 2 && !(markers.any? { |marker| winner?(board: params[:board], marker: marker) })
+    if markers.length == 2 && !(markers.any? { |marker| winner?(board: @board, marker: marker) })
       return true
     else
       return false
@@ -26,10 +26,11 @@ class Rules
   end
 
   def valid?(params)
-    if params[:move].between?(0,8) && params[:board][params[:move]].class == Fixnum
-      true
+    if params[:move].between?(0,8) && @board[params[:move]].class == Fixnum
+      return true
     else
-      false
+      return false
     end
   end
+
 end
