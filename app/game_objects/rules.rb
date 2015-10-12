@@ -7,8 +7,8 @@ class Rules
     ]
   end
 
-  def game_over?(params)
-    if winner?(params) && tie?
+  def game_over?
+    if winner? || tie?
       return true
     else
       return false

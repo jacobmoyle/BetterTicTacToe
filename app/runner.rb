@@ -8,16 +8,16 @@ mode = Ui.get_mode
 case mode
 when "1"
   Ui.confirm_computer
-  players[:player_one] = Ai.new(Ui.player_info("Computer 1"))
-  players[:player_two] = Ai.new(Ui.player_info("Computer 2"))
+  players[:player_one] = Ai.new(Ui.player_info("Robot 1"))
+  players[:player_two] = Ai.new(Ui.player_info("Robot 2"))
 when "2"
   Ui.confirm_human
-  players[:player_one] = Player.new(Ui.player_info("Player 1"))
-  players[:player_two] = Player.new(Ui.player_info("Player 2"))
+  players[:player_one] = Player.new(Ui.player_info("Human 1"))
+  players[:player_two] = Player.new(Ui.player_info("Human 2"))
 when "3"
   Ui.confirm_humanvcomputer
-  players[:player_one] = Player.new(Ui.player_info("Player 1"))
-  players[:player_two] = Ai.new(Ui.player_info("Computer"))
+  players[:player_one] = Player.new(Ui.player_info("Human"))
+  players[:player_two] = Ai.new(Ui.player_info("Robot"))
 end
 
 newgame = Game.new(players)
@@ -31,13 +31,14 @@ case first
     newgame.switch_players
 end
 
-# until game over
-
-#   until player move finalized?
+over = false
+# until over
+  until player move finalized?
 #     get player move
 #     finalize move
-
+  end
 #   switch players
+# end
 
 # show winner
 # play again?
