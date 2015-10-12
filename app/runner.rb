@@ -34,17 +34,28 @@ end
 
 until newgame.gameover?
   newgame.switch_players
-  # Get move
+  Ui.print_board(newgame.board)
+
+  move = -1
   until newgame.valid?(move)
-    if game.current_player.class == Ai
+    if newgame.current_player.class == Ai
       move = newgame.current_player.move(newgame.board)
     else
-      move = Ui.move
+      move = Ui.get_move(newgame.current_player)
     end
-    newgame.make_move(move)
   end
-  newgame.
+
+  Ui.confirm_move(move: move, player: newgame.current_player)
+
+  newgame.make_move(move)
 end
 
-# show winner
-# play again?
+if newgame.winner?
+  Ui.winner(newgame.current_player)
+else
+  Ui.tie
+end
+
+Ui.print_board(newgame.board)
+
+Ui.play_again?

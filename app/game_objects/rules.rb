@@ -33,8 +33,8 @@ class Rules
     end
   end
 
-  def valid?(params)
-    if params[:move].between?(0,8) && @board[params[:move]].class == Fixnum
+  def valid?(move)
+    if move.between?(0,8) && @board[move].class == Fixnum
       return true
     else
       return false
