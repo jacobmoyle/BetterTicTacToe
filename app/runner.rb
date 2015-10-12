@@ -26,19 +26,25 @@ first = Ui.get_turn_order(players)
 case first
   when "1"
     Ui.tprint("Confirmed.")
+    # Players switched due to gameover? logic
+    newgame.switch_players
   when "2"
     Ui.tprint("Confirmed.")
-    newgame.switch_players
 end
 
-over = false
-# until over
-  until player move finalized?
-#     get player move
-#     finalize move
+until newgame.gameover?
+  newgame.switch_players
+  # Get move
+  until newgame.valid?(move)
+    if game.current_player.class == Ai
+      move = newgame.current_player.move(newgame.board)
+    else
+      move = Ui.move
+    end
+    newgame.make_move(move)
   end
-#   switch players
-# end
+  newgame.
+end
 
 # show winner
 # play again?

@@ -11,13 +11,8 @@ class Game < Rules
     @board = [0,1,2,3,4,5,6,7,8]
   end
 
-  def move_confirmed?(params)
-    if valid?(params[:move])
-      @board[params[:move]] = @current_player.marker
-      return true
-    else
-      return false
-    end
+  def make_move(move)
+      @board[move] = @current_player.marker
   end
 
   def switch_players
