@@ -1,26 +1,35 @@
 require_relative 'requirements/all_files'
 
-game_hash = Hash.new
+Ui.start
 
-UI.start
+players = Hash.new
 
-mode = UI.get_mode
+mode = Ui.get_mode
 case mode
 when "1"
-  UI.player_info("Computer")
-  UI.player_info("Computer")
+  Ui.confirm_computer
+  players[:player_one] = Ai.new(Ui.player_info("Computer 1"))
+  players[:player_two] = Ai.new(Ui.player_info("Computer 2"))
 when "2"
-  UI.player_info("Human")
-  UI.player_info("Human")
+  Ui.confirm_human
+  players[:player_one] = Player.new(Ui.player_info("Player 1"))
+  players[:player_two] = Player.new(Ui.player_info("Player 2"))
 when "3"
-  UI.player_info("Human")
-  UI.player_info("Computer")
+  Ui.confirm_humanvcomputer
+  players[:player_one] = Player.new(Ui.player_info("Player 1"))
+  players[:player_two] = Ai.new(Ui.player_info("Computer"))
 end
 
-# newgame
-# create players
-#   type of player
-#     name, type, who first, marker
+newgame = Game.new(players)
+
+first = Ui.get_turn_order(players)
+case first
+  when "1"
+    Ui.tprint("Confirmed.")
+  when "2"
+    Ui.tprint("Confirmed.")
+    newgame.switch_players
+end
 
 # until game over
 
