@@ -10,9 +10,6 @@ describe Ai do
   it 'has a name' do
     expect(comp.name).to eq('Computer')
   end
-  it 'has the enemy marker' do
-    expect(comp.enemy_marker).to eq('O')
-  end
 
   describe '#move' do
     it 'returns an index of a given array' do

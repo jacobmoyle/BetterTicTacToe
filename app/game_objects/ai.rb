@@ -5,7 +5,7 @@ class Ai < Player
 
   def initialize(params)
     super
-    @enemy_marker = params[:enemy_marker]
+    @enemy_marker = nil
   end
 
   # The higher a move scores the more likely it will be chosen.
@@ -19,6 +19,10 @@ class Ai < Player
   # 0,4,8 would be a diagonal line.
 
   def move(board)
+    if @enemy_marker == nil
+      find_enemy(board)
+    end
+
     moves = [0,1,2,3,4,5,6,7,8]
 
     board.each_with_index do |contents, index|
@@ -113,6 +117,14 @@ class Ai < Player
     end
 
     score
+  end
+
+  def find_enemy(board)
+    board.each do |spot|
+      if spot.class == String && spot != @marker
+        @enemy_marker = spot
+      end
+    end
   end
 
 end

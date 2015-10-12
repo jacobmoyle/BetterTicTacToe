@@ -58,3 +58,8 @@
 # if error
 #   p error.message
 # end
+
+
+class Person
+
+end
