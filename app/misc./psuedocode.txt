@@ -1,33 +1,19 @@
 Program Psuedocode
 
-Ai < Player
-  - provides move [done]
-  - tracks own name
-  - tracks own marker [done]
-  - tracks enemy marker [done]
-
-Rules
-  - dictates if game is a tie [done]
-  - dictates if game is over
-  - decides who won [done]
-  - dictates if a move is invalid [done]
-
 Terminal_UI
-  - use colorize gem
-  - Outputs all print methods
+  - Outputs all print methods [done]
   - Provides user input
 
 Runner
   - loops until game is over
-  - provides output via Terminal_UI
+  - provides output via Terminal_UI [done]
   - passes information to Game
 
 Gems
-  - Nyan cat rspec
   - colorize
-  - find a tic tac toe text image
+  - find a tic tac toe text image [done]
 
-** Completed && Tested **
+** Completed **
 
 Player
   - tracks own name [done]
@@ -40,3 +26,14 @@ Game
     - sets/updates who goes first [done]
   - generates an 'empty' board [done]
   - updates board [done]
+
+Ai < Player
+  - provides move [done]
+  - tracks own marker [done]
+  - tracks enemy marker [done]
+
+Rules
+  - dictates if game is a tie [done]
+  - dictates if game is over [kinda]
+  - decides who won [done]
+  - dictates if a move is invalid [done]

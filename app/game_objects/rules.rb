@@ -7,8 +7,16 @@ class Rules
     ]
   end
 
-  def winner?(params)
-    if @win_lines.any? { |line_indices| line_indices.all? { |index| @board[index] == params[:marker] } }
+  def gameover?
+    if winner? || tie?
+      return true
+    else
+      return false
+    end
+  end
+
+  def winner?
+    if @win_lines.any? { |line_indices| line_indices.all? { |index| @board[index] == @current_player.marker } }
       return true
     else
       return false
@@ -18,15 +26,15 @@ class Rules
   def tie?
     markers = @board.uniq
 
-    if markers.length == 2 && !(markers.any? { |marker| winner?(board: @board, marker: marker) })
+    if markers.length == 2 && winner? == false
       return true
     else
       return false
     end
   end
 
-  def valid?(params)
-    if params[:move].between?(0,8) && @board[params[:move]].class == Fixnum
+  def valid?(move)
+    if move.between?(0,8) && @board[move].class == Fixnum
       return true
     else
       return false
