@@ -1,7 +1,6 @@
 require_relative 'requirements/all_files'
 
 Ui.start
-
 players = Hash.new
 
 mode = Ui.get_mode
@@ -26,7 +25,7 @@ first = Ui.get_turn_order(players)
 case first
   when "1"
     Ui.tprint("Confirmed.")
-    # Players switched due to gameover? logic
+    # Players switched due to #gameover? logic
     newgame.switch_players
   when "2"
     Ui.tprint("Confirmed.")
@@ -44,9 +43,7 @@ until newgame.gameover?
       move = Ui.get_move(newgame.current_player)
     end
   end
-
   Ui.confirm_move(move: move, player: newgame.current_player)
-
   newgame.make_move(move)
 end
 
