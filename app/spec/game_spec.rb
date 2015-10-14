@@ -53,22 +53,22 @@ describe Game do
     context 'returns true when' do
       it 'the input is valid' do
         game.board = [0,1,2,3,4,5,6,7,8]
-        expect(game.valid?(move: 0)).to eq(true)
+        expect(game.valid?(0)).to eq(true)
       end
     end
 
     context 'returns false when' do
       it 'the input is larger than board length' do
         game.board = [0,1,2,3,4,5,6,7,8]
-        expect(game.valid?(move: 9)).to eq(false)
+        expect(game.valid?(9)).to eq(false)
       end
       it 'the input is smaller than the board length' do
         game.board = [0,1,2,3,4,5,6,7,8]
-        expect(game.valid?(move: -5)).to eq(false)
+        expect(game.valid?(-5)).to eq(false)
       end
       it 'the move has been taken' do
         game.board = [0,1,2,3,'4',5,6,7,8]
-        expect(game.valid?(move: 4)).to eq(false)
+        expect(game.valid?(4)).to eq(false)
       end
     end
 
