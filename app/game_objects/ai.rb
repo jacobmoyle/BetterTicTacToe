@@ -120,7 +120,7 @@ class Ai < Player
   def find_enemy(board)
     board.each do |spot|
       if spot.class == String && spot != @marker
-        @enemy_marker = spot
+        return spot
       end
     end
   end
