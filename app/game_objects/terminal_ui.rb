@@ -1,3 +1,5 @@
+require 'colorize'
+
 module Ui
   def self.start
     system("clear")
@@ -102,7 +104,7 @@ module Ui
   def self.tprint(string)
     puts ""
     string.split("" ).each do |character|
-      print character
+      print character.colorize(:blue)
       sleep(0.002)
     end
   end
