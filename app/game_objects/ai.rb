@@ -10,13 +10,13 @@ class Ai < Player
 
   # The higher a move scores the more likely it will be chosen.
   # Move is given a score based on the how few or many markers are on a 'line'
-  # A 'line' is a method of winning. For example, given the board:
+  # For example, given the board:
 
   # 0,1,2,
   # 3,4,5,
   # 6,7,8
 
-  # 0,4,8 would be a diagonal line.
+  # 0,4,8 would be a Left Diagonal line.
 
   def move(board)
     @enemy_marker ||= find_enemy(board)
@@ -32,54 +32,54 @@ class Ai < Player
         # The following array calls are confusing. Need to refactor, call them 'diagonal-left' for example.
         when 0
           moves[index] = calculate_score([
-                            [board[0],board[4],board[8]], # Row B
-                            [board[0],board[1],board[2]], # Row F
-                            [board[0],board[3],board[6]]  # Row D
+                            [board[0],board[4],board[8]], # Top Row
+                            [board[0],board[1],board[2]], # Middle Column
+                            [board[0],board[3],board[6]]  # Bottom Row
                         ])
         when 1
           moves[index] = calculate_score([
-                          [board[0],board[1],board[2]], # Row F
-                          [board[1],board[4],board[7]]  # Row C
+                          [board[0],board[1],board[2]], # Middle Column
+                          [board[1],board[4],board[7]]  # Middle Row
                           ])
         when 2
           moves[index] = calculate_score([
-                          [board[2],board[4],board[6]], # Row A
-                          [board[0],board[1],board[2]], # Row F
-                          [board[2],board[5],board[8]]  # Row E
+                          [board[2],board[4],board[6]], # Left Diagonal
+                          [board[0],board[1],board[2]], # Middle Column
+                          [board[2],board[5],board[8]]  # Right Column
                           ])
         when 3
           moves[index] = calculate_score([
-                          [board[3],board[4],board[5]], # Row G
-                          [board[0],board[3],board[6]]  # Row D
+                          [board[3],board[4],board[5]], # Left Column
+                          [board[0],board[3],board[6]]  # Bottom Row
                           ])
         when 4
           moves[index] = calculate_score([
-                          [board[2],board[4],board[6]], # Row A
-                          [board[0],board[4],board[8]], # Row B
-                          [board[1],board[4],board[7]], # Row C
-                          [board[3],board[4],board[5]]  # Row G
+                          [board[2],board[4],board[6]], # Left Diagonal
+                          [board[0],board[4],board[8]], # Top Row
+                          [board[1],board[4],board[7]], # Middle Row
+                          [board[3],board[4],board[5]]  # Left Column
                           ])
         when 5
           moves[index] = calculate_score([
-                          [board[3],board[4],board[5]], # Row G
-                          [board[2],board[5],board[8]]  # Row E
+                          [board[3],board[4],board[5]], # Left Column
+                          [board[2],board[5],board[8]]  # Right Column
                           ])
         when 6
           moves[index] = calculate_score([
-                          [board[2],board[4],board[6]], # Row A
-                          [board[0],board[3],board[6]], # Row D
-                          [board[6],board[7],board[8]]  # Row H
+                          [board[2],board[4],board[6]], # Left Diagonal
+                          [board[0],board[3],board[6]], # Bottom Row
+                          [board[6],board[7],board[8]]  # Right Diagnol
                           ])
         when 7
           moves[index] = calculate_score([
-                          [board[1],board[4],board[7]], # Row C
-                          [board[6],board[7],board[8]]  # Row H
+                          [board[1],board[4],board[7]], # Middle Row
+                          [board[6],board[7],board[8]]  # Right Diagnol
                           ])
         when 8
           moves[index] = calculate_score([
-                          [board[6],board[7],board[8]], # Row H
-                          [board[2],board[5],board[8]], # Row E
-                          [board[0],board[4],board[8]]  # Row B
+                          [board[6],board[7],board[8]], # Right Diagnol
+                          [board[2],board[5],board[8]], # Right Column
+                          [board[0],board[4],board[8]]  # Top Row
                           ])
         end
       # If move has already been taken, score is 0
