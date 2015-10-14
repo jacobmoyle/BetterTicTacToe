@@ -20,6 +20,7 @@ class Ai < Player
 
   def move(board)
     @enemy_marker ||= find_enemy(board)
+    move = corner_counter(board)
 
     moves = [0,1,2,3,4,5,6,7,8]
 
@@ -87,7 +88,7 @@ class Ai < Player
       end
     end
     # Purposely not worrying about handling a full board.
-    moves.index(moves.max)
+    move ||= moves.index(moves.max)
   end
 
   private
@@ -115,6 +116,12 @@ class Ai < Player
     end
 
     score
+  end
+
+  def corner_counter(board)
+    if board == [@enemy_marker,1,2,3,@marker,5,6,7,@enemy_marker] || board == [0,1,@enemy_marker,3,@marker,5,@enemy_marker,7,8]
+      return 3
+    end
   end
 
   def find_enemy(board)
