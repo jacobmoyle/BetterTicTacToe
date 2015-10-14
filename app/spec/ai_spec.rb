@@ -32,6 +32,12 @@ describe Ai do
     it 'returns the blocking move' do
       expect(comp.move([0,1,'X','O','X',5,'O',7,8])).to eq(0)
     end
+    it 'returns the blocking move for left/bottom corner play' do
+      expect(comp.move(['O',1,2,3,'X',5,6,7,'O'])).to eq(3)
+    end
+    it 'returns the blocking move for left/bottom corner play' do
+      expect(comp.move([0,1,'O',3,'X',5,'O',7,8])).to eq(3)
+    end
 
   end
 

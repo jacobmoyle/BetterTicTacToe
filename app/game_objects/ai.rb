@@ -5,7 +5,7 @@ class Ai < Player
 
   def initialize(params)
     super
-    @enemy_marker = nil
+    @enemy_marker = params.fetch([:enemy_marker], nil)
   end
 
   # The higher a move scores the more likely it will be chosen.
@@ -19,9 +19,8 @@ class Ai < Player
   # 0,4,8 would be a diagonal line.
 
   def move(board)
-    if @enemy_marker == nil
-      find_enemy(board)
-    end
+    @enemy_marker ||= find_enemy(board)
+    move = corner_counter(board)
 
     moves = [0,1,2,3,4,5,6,7,8]
 
@@ -89,7 +88,7 @@ class Ai < Player
       end
     end
     # Purposely not worrying about handling a full board.
-    moves.index(moves.max)
+    move ||= moves.index(moves.max)
   end
 
   private
@@ -119,10 +118,16 @@ class Ai < Player
     score
   end
 
+  def corner_counter(board)
+    if board == [@enemy_marker,1,2,3,@marker,5,6,7,@enemy_marker] || board == [0,1,@enemy_marker,3,@marker,5,@enemy_marker,7,8]
+      return 3
+    end
+  end
+
   def find_enemy(board)
     board.each do |spot|
       if spot.class == String && spot != @marker
-        @enemy_marker = spot
+        return spot
       end
     end
   end
