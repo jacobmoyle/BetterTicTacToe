@@ -1,11 +1,11 @@
 ### Tic Tac Toe ###
 By Jacob Moyle, 2015
-
 ---
 
 An unbeatable Tic Tac Toe computer.
 
 #### Instructions:
+* Download the colorize gem [here](https://github.com/fazibear/colorize)
 * Clone this repo:
   * Run `git clone https://github.com/jacobmoyle/TicTacToe`
 * From the app directory:
