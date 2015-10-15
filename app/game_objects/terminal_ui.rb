@@ -79,8 +79,8 @@ module Ui
   end
 
   def self.winner(player)
-    Ui.tputs("\n***********************").colorize(:red)
-    Ui.puts("#{player.name} has won!")
+    Ui.tputs("\n***********************".colorize(:red))
+    Ui.tputs("#{player.name} has won!")
   end
 
   def self.tie
@@ -90,7 +90,7 @@ module Ui
 
   def self.play_again?
     Ui.tprint( "Play Again?" )
-    Ui.tprint( "Y / " + "N".colorize(:red) )
+    Ui.tprint( "Y".colorize(:light_green) + " / " + "N".colorize(:light_red) )
 
     if Ui.user_input.downcase == "y"
       system( "ruby runner.rb" )
