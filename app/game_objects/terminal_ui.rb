@@ -4,27 +4,27 @@ module Ui
   def self.start
     system("clear")
 
-    Ui.tprint(" ______                ______                     ______".colorize(:yellow))
-    Ui.tprint("/\\__  _\\__            /\\__  _\\                   /\\__  _\\".colorize(:yellow))
-    Ui.tprint("\\/_/\\ \\/\\_\\    ___    \\/_/\\ \\/    __      ___    \\/_/\\ \\/   ___      __".colorize(:yellow))
-    Ui.tprint("   \\ \\ \\/\\ \\  /'___\\     \\ \\ \\  /'__`\\   /'___\\     \\ \\ \\  / __`\\  /'__`\\".colorize(:yellow))
-    Ui.tprint("    \\ \\ \\ \\ \\/\\ \\__/      \\ \\ \\/\\ \\L\\.\\_/\\ \\__/      \\ \\ \\/\\ \\L\\ \\/\\  __/".colorize(:yellow))
-    Ui.tprint("     \\ \\_\\ \\_\\ \\____\\      \\ \\_\\ \\__/.\\_\\ \\____\\      \\ \\_\\ \\____/\\ \\____\\".colorize(:yellow))
-    Ui.tprint("      \\/_/\\/_/\\/____/       \\/_/\\/__/\\/_/\\/____/       \\/_/\\/___/  \\/____/".colorize(:yellow))
+    Ui.tprint(" ______                ______                     ______".colorize(:cyan))
+    Ui.tprint("/\\__  _\\__            /\\__  _\\                   /\\__  _\\".colorize(:cyan))
+    Ui.tprint("\\/_/\\ \\/\\_\\    ___    \\/_/\\ \\/    __      ___    \\/_/\\ \\/   ___      __".colorize(:cyan))
+    Ui.tprint("   \\ \\ \\/\\ \\  /'___\\     \\ \\ \\  /'__`\\   /'___\\     \\ \\ \\  / __`\\  /'__`\\".colorize(:cyan))
+    Ui.tprint("    \\ \\ \\ \\ \\/\\ \\__/      \\ \\ \\/\\ \\L\\.\\_/\\ \\__/      \\ \\ \\/\\ \\L\\ \\/\\  __/".colorize(:cyan))
+    Ui.tprint("     \\ \\_\\ \\_\\ \\____\\      \\ \\_\\ \\__/.\\_\\ \\____\\      \\ \\_\\ \\____/\\ \\____\\".colorize(:cyan))
+    Ui.tprint("      \\/_/\\/_/\\/____/       \\/_/\\/__/\\/_/\\/____/       \\/_/\\/___/  \\/____/".colorize(:cyan))
     Ui.tprint("\n")
     p String.colors
   end
 
     def self.print_board(board)
-      Ui.tputs( "#{board[0]} | #{board[1]} | #{board[2]}\n" + "---------\n".colorize(:brown) + "#{board[3]} | #{board[4]} | #{board[5]}\n" + "---------\n".colorize(:brown) + "#{board[6]} | #{board[7]} | #{board[8]}" )
+      Ui.tputs( "#{board[0]}" + " | ".colorize(:cyan) + "#{board[1]}" + " | ".colorize(:cyan) + "#{board[2]}\n" + "---------\n".colorize(:cyan) + "#{board[3]}" + " | ".colorize(:cyan) + "#{board[4]}" + " | ".colorize(:cyan) + "#{board[5]}\n" + "---------\n".colorize(:cyan) + "#{board[6]}" + " | ".colorize(:cyan) + "#{board[7]}" + " | ".colorize(:cyan) + "#{board[8]}" )
     end
 
   def self.get_mode
     Ui.tprint("Please choose a game type:")
-    Ui.tprint("--------------------------".colorize(:light_black))
-    Ui.tprint("Computer v. Computer - Enter" + "1".colorize(:light_blue))
-    Ui.tprint("Human v. Human - Enter" + "2".colorize(:cyan))
-    Ui.tprint("Human v. Computer - Enter" + "3".colorize(:light_cyan))
+    Ui.tprint("--------------------------".colorize(:cyan))
+    Ui.tprint("Computer v. Computer - Enter" + " 1".colorize(:cyan))
+    Ui.tprint("Human v. Human - Enter" + " 2".colorize(:cyan))
+    Ui.tprint("Human v. Computer - Enter" + " 3".colorize(:cyan))
 
     return Ui.user_input
   end
@@ -32,9 +32,9 @@ module Ui
   def self.player_info(playerType)
     info = Hash.new
 
-    Ui.tprint("Hence forth, #{playerType} shall be called:")
+    Ui.tprint("Hence forth, #{playerType}".colorize(:cyan) + " shall be called:")
     info[:name] = Ui.user_input
-    Ui.tprint("Please enter a dastardly icon for #{info[:name]}:")
+    Ui.tprint("Please enter a dastardly marker for " + "#{info[:name]}:".colorize(:cyan))
     info[:marker] = Ui.user_input
 
     info
@@ -70,17 +70,17 @@ module Ui
 
   def self.confirm_move(params)
     Ui.tprint("#{params[:player].name} selected position #{params[:move].to_s}.")
-    Ui.tprint("Board updated.")
+    Ui.tputs("Board updated.")
   end
 
   def self.winner(player)
-    Ui.tputs("\n***********************")
-    Ui.tprint("#{player.name} has won!")
+    Ui.tputs("\n***********************").colorize(:red)
+    Ui.puts("#{player.name} has won!")
   end
 
   def self.tie
-    Ui.tputs("\n********************")
-    Ui.tprint("Cats game! Womp womp.")
+    Ui.tputs("\n********************".colorize(:red))
+    Ui.tputs("Cats game! Womp womp.")
   end
 
   def self.play_again?
@@ -90,7 +90,7 @@ module Ui
     if Ui.user_input.downcase == "y"
       system( "ruby runner.rb" )
     else
-      Ui.tprint( "Goodbye." )
+      Ui.tputs( "Goodbye." )
     end
 
   end
@@ -111,7 +111,7 @@ module Ui
   end
 
   def self.user_input
-    Ui.tprint("> ")
+    Ui.tprint("> ".colorize(:red))
     return gets.chomp
   end
 
