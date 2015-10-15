@@ -12,12 +12,11 @@ module Ui
     Ui.tprint("     \\ \\_\\ \\_\\ \\____\\      \\ \\_\\ \\__/.\\_\\ \\____\\      \\ \\_\\ \\____/\\ \\____\\".colorize(:cyan))
     Ui.tprint("      \\/_/\\/_/\\/____/       \\/_/\\/__/\\/_/\\/____/       \\/_/\\/___/  \\/____/".colorize(:cyan))
     Ui.tprint("\n")
-    p String.colors
   end
 
-    def self.print_board(board)
-      Ui.tputs( "#{board[0]}" + " | ".colorize(:cyan) + "#{board[1]}" + " | ".colorize(:cyan) + "#{board[2]}\n" + "---------\n".colorize(:cyan) + "#{board[3]}" + " | ".colorize(:cyan) + "#{board[4]}" + " | ".colorize(:cyan) + "#{board[5]}\n" + "---------\n".colorize(:cyan) + "#{board[6]}" + " | ".colorize(:cyan) + "#{board[7]}" + " | ".colorize(:cyan) + "#{board[8]}" )
-    end
+  def self.print_board(board)
+    Ui.tputs( "#{board[0]}" + " | ".colorize(:cyan) + "#{board[1]}" + " | ".colorize(:cyan) + "#{board[2]}\n" + "---------\n".colorize(:cyan) + "#{board[3]}" + " | ".colorize(:cyan) + "#{board[4]}" + " | ".colorize(:cyan) + "#{board[5]}\n" + "---------\n".colorize(:cyan) + "#{board[6]}" + " | ".colorize(:cyan) + "#{board[7]}" + " | ".colorize(:cyan) + "#{board[8]}" )
+  end
 
   def self.get_mode
     Ui.tprint("Please choose a game type:")
@@ -32,7 +31,7 @@ module Ui
   def self.player_info(playerType)
     info = Hash.new
 
-    Ui.tprint("Hence forth, #{playerType}".colorize(:cyan) + " shall be called:")
+    Ui.tprint("Hence forth," + "#{playerType}".colorize(:cyan) + " shall be called:")
     info[:name] = Ui.user_input
     Ui.tprint("Please enter a dastardly marker for " + "#{info[:name]}:".colorize(:cyan))
     info[:marker] = Ui.user_input
@@ -52,8 +51,8 @@ module Ui
 
   def self.get_turn_order(players)
     Ui.tprint("Which player goes first?")
-    Ui.tprint("#{players[:player_one].name} - Enter 1")
-    Ui.tprint("#{players[:player_two].name} - Enter 2")
+    Ui.tprint("#{players[:player_one].name}".colorize(:cyan) + " - Enter 1")
+    Ui.tprint("#{players[:player_two].name}".colorize(:red) + " - Enter 2")
 
     Ui.user_input
   end
@@ -85,7 +84,7 @@ module Ui
 
   def self.play_again?
     Ui.tprint( "Play Again?" )
-    Ui.tprint( "Y / N" )
+    Ui.tprint( "Y / " + "N".colorize(:red) )
 
     if Ui.user_input.downcase == "y"
       system( "ruby runner.rb" )

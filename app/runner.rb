@@ -24,11 +24,11 @@ newgame = Game.new(players)
 first = Ui.get_turn_order(players)
 case first
   when "1"
-    Ui.tprint("Confirmed.")
+    Ui.tputs("Confirmed.")
     # Players switched due to #gameover? logic
     newgame.switch_players
   when "2"
-    Ui.tprint("Confirmed.")
+    Ui.tputs("Confirmed.")
 end
 
 until newgame.gameover?
