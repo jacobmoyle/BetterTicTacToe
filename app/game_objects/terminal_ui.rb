@@ -4,26 +4,26 @@ module Ui
   def self.start
     system("clear")
 
-    Ui.tprint(" ______                ______                     ______".colorize(:cyan))
-    Ui.tprint("/\\__  _\\__            /\\__  _\\                   /\\__  _\\".colorize(:cyan))
-    Ui.tprint("\\/_/\\ \\/\\_\\    ___    \\/_/\\ \\/    __      ___    \\/_/\\ \\/   ___      __".colorize(:cyan))
-    Ui.tprint("   \\ \\ \\/\\ \\  /'___\\     \\ \\ \\  /'__`\\   /'___\\     \\ \\ \\  / __`\\  /'__`\\".colorize(:cyan))
-    Ui.tprint("    \\ \\ \\ \\ \\/\\ \\__/      \\ \\ \\/\\ \\L\\.\\_/\\ \\__/      \\ \\ \\/\\ \\L\\ \\/\\  __/".colorize(:cyan))
-    Ui.tprint("     \\ \\_\\ \\_\\ \\____\\      \\ \\_\\ \\__/.\\_\\ \\____\\      \\ \\_\\ \\____/\\ \\____\\".colorize(:cyan))
-    Ui.tprint("      \\/_/\\/_/\\/____/       \\/_/\\/__/\\/_/\\/____/       \\/_/\\/___/  \\/____/".colorize(:cyan))
+    Ui.tprint(" ______                ______                     ______".colorize(:light_cyan))
+    Ui.tprint("/\\__  _\\__            /\\__  _\\                   /\\__  _\\".colorize(:light_cyan))
+    Ui.tprint("\\/_/\\ \\/\\_\\    ___    \\/_/\\ \\/    __      ___    \\/_/\\ \\/   ___      __".colorize(:light_cyan))
+    Ui.tprint("   \\ \\ \\/\\ \\  /'___\\     \\ \\ \\  /'__`\\   /'___\\     \\ \\ \\  / __`\\  /'__`\\".colorize(:light_cyan))
+    Ui.tprint("    \\ \\ \\ \\ \\/\\ \\__/      \\ \\ \\/\\ \\L\\.\\_/\\ \\__/      \\ \\ \\/\\ \\L\\ \\/\\  __/".colorize(:light_cyan))
+    Ui.tprint("     \\ \\_\\ \\_\\ \\____\\      \\ \\_\\ \\__/.\\_\\ \\____\\      \\ \\_\\ \\____/\\ \\____\\".colorize(:light_cyan))
+    Ui.tprint("      \\/_/\\/_/\\/____/       \\/_/\\/__/\\/_/\\/____/       \\/_/\\/___/  \\/____/".colorize(:light_cyan))
     Ui.tprint("\n")
   end
 
   def self.print_board(board)
-    Ui.tputs( "#{board[0]}" + " | ".colorize(:cyan) + "#{board[1]}" + " | ".colorize(:cyan) + "#{board[2]}\n" + "---------\n".colorize(:cyan) + "#{board[3]}" + " | ".colorize(:cyan) + "#{board[4]}" + " | ".colorize(:cyan) + "#{board[5]}\n" + "---------\n".colorize(:cyan) + "#{board[6]}" + " | ".colorize(:cyan) + "#{board[7]}" + " | ".colorize(:cyan) + "#{board[8]}" )
+    Ui.tputs( "#{board[0]}" + " | ".colorize(:light_cyan) + "#{board[1]}" + " | ".colorize(:light_cyan) + "#{board[2]}\n" + "---------\n".colorize(:light_cyan) + "#{board[3]}" + " | ".colorize(:light_cyan) + "#{board[4]}" + " | ".colorize(:light_cyan) + "#{board[5]}\n" + "---------\n".colorize(:light_cyan) + "#{board[6]}" + " | ".colorize(:light_cyan) + "#{board[7]}" + " | ".colorize(:light_cyan) + "#{board[8]}" )
   end
 
   def self.get_mode
     Ui.tprint("Please choose a game type:")
-    Ui.tprint("--------------------------".colorize(:cyan))
-    Ui.tprint("Computer v. Computer - Enter" + " 1".colorize(:cyan))
-    Ui.tprint("Human v. Human - Enter" + " 2".colorize(:cyan))
-    Ui.tprint("Human v. Computer - Enter" + " 3".colorize(:cyan))
+    Ui.tprint("--------------------------".colorize(:light_cyan))
+    Ui.tprint("Computer v. Computer - Enter" + " 1".colorize(:light_cyan))
+    Ui.tprint("Human v. Human - Enter" + " 2".colorize(:light_cyan))
+    Ui.tprint("Human v. Computer - Enter" + " 3".colorize(:light_cyan))
 
     return Ui.user_input
   end
@@ -31,9 +31,9 @@ module Ui
   def self.player_info(playerType)
     info = Hash.new
 
-    Ui.tprint("Hence forth," + "#{playerType}".colorize(:cyan) + " shall be called:")
+    Ui.tprint("Hence forth, " + "#{playerType}".colorize(:light_cyan) + " shall be referred to as...")
     info[:name] = Ui.user_input
-    Ui.tprint("Please enter a dastardly marker for " + "#{info[:name]}:".colorize(:cyan))
+    Ui.tprint("Please enter a marker for " + "#{info[:name]}:".colorize(:light_cyan))
     info[:marker] = Ui.user_input
 
     info
@@ -42,16 +42,18 @@ module Ui
   def self.confirm_computer
     Ui.tprint("Computer v. Computer selected.")
   end
+
   def self.confirm_human
     Ui.tprint("Human v. Human selected.")
   end
+
   def self.confirm_humanvcomputer
     Ui.tprint("Human v. Computer selected.")
   end
 
   def self.get_turn_order(players)
     Ui.tprint("Which player goes first?")
-    Ui.tprint("#{players[:player_one].name}".colorize(:cyan) + " - Enter 1")
+    Ui.tprint("#{players[:player_one].name}".colorize(:light_cyan) + " - Enter 1")
     Ui.tprint("#{players[:player_two].name}".colorize(:red) + " - Enter 2")
 
     Ui.user_input
@@ -68,7 +70,11 @@ module Ui
   end
 
   def self.confirm_move(params)
-    Ui.tprint("#{params[:player].name} selected position #{params[:move].to_s}.")
+    Ui.tputs("#{params[:player].name} selected position #{params[:move].to_s}.")
+    10.times do
+      print ".".colorize(:light_cyan)
+      sleep(0.2)
+    end
     Ui.tputs("Board updated.")
   end
 
