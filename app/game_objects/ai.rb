@@ -130,6 +130,8 @@ class Ai < Player
         return spot
       end
     end
+    # Returns nil if nothing found
+    return nil
   end
 
 end
