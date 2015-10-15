@@ -38,7 +38,21 @@ describe Ai do
     it 'returns the blocking move for left/bottom corner play' do
       expect(comp.move([0,1,'O',3,'X',5,'O',7,8])).to eq(3)
     end
+    it 'returns 3' do
+      expect(comp.move(['O',1,'X',3,'X',5,'O',7,8])).to eq(3)
+    end
 
+  end
+
+  describe '#find_enemy' do
+    it 'returns nil if no enemy marker is on the board' do
+      comp.move([0,1,2,3,4,5,6,7,8])
+      expect(comp.enemy_marker).to eq(nil)
+    end
+    it 'returns O if enemy marker is on the board' do
+      comp.move([0,1,2,3,'O',5,6,7,8])
+      expect(comp.enemy_marker).to eq('O')
+    end
   end
 
 end

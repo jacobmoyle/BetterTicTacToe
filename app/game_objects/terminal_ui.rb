@@ -4,31 +4,27 @@ module Ui
   def self.start
     system("clear")
 
-    Ui.tprint(" ______                ______                     ______")
-    Ui.tprint("/\\__  _\\__            /\\__  _\\                   /\\__  _\\")
-    Ui.tprint("\\/_/\\ \\/\\_\\    ___    \\/_/\\ \\/    __      ___    \\/_/\\ \\/   ___      __")
-    Ui.tprint("   \\ \\ \\/\\ \\  /'___\\     \\ \\ \\  /'__`\\   /'___\\     \\ \\ \\  / __`\\  /'__`\\")
-    Ui.tprint("    \\ \\ \\ \\ \\/\\ \\__/      \\ \\ \\/\\ \\L\\.\\_/\\ \\__/      \\ \\ \\/\\ \\L\\ \\/\\  __/")
-    Ui.tprint("     \\ \\_\\ \\_\\ \\____\\      \\ \\_\\ \\__/.\\_\\ \\____\\      \\ \\_\\ \\____/\\ \\____\\")
-    Ui.tprint("      \\/_/\\/_/\\/____/       \\/_/\\/__/\\/_/\\/____/       \\/_/\\/___/  \\/____/")
+    Ui.tprint(" ______                ______                     ______".colorize(:yellow))
+    Ui.tprint("/\\__  _\\__            /\\__  _\\                   /\\__  _\\".colorize(:yellow))
+    Ui.tprint("\\/_/\\ \\/\\_\\    ___    \\/_/\\ \\/    __      ___    \\/_/\\ \\/   ___      __".colorize(:yellow))
+    Ui.tprint("   \\ \\ \\/\\ \\  /'___\\     \\ \\ \\  /'__`\\   /'___\\     \\ \\ \\  / __`\\  /'__`\\".colorize(:yellow))
+    Ui.tprint("    \\ \\ \\ \\ \\/\\ \\__/      \\ \\ \\/\\ \\L\\.\\_/\\ \\__/      \\ \\ \\/\\ \\L\\ \\/\\  __/".colorize(:yellow))
+    Ui.tprint("     \\ \\_\\ \\_\\ \\____\\      \\ \\_\\ \\__/.\\_\\ \\____\\      \\ \\_\\ \\____/\\ \\____\\".colorize(:yellow))
+    Ui.tprint("      \\/_/\\/_/\\/____/       \\/_/\\/__/\\/_/\\/____/       \\/_/\\/___/  \\/____/".colorize(:yellow))
     Ui.tprint("\n")
+    p String.colors
   end
 
     def self.print_board(board)
-      Ui.tputs( "
-        #{board[0]} | #{board[1]} | #{board[2]}
-        ---------
-        #{board[3]} | #{board[4]} | #{board[5]}
-        ---------
-        #{board[6]} | #{board[7]} | #{board[8]}" )
+      Ui.tputs( "#{board[0]} | #{board[1]} | #{board[2]}\n" + "---------\n".colorize(:brown) + "#{board[3]} | #{board[4]} | #{board[5]}\n" + "---------\n".colorize(:brown) + "#{board[6]} | #{board[7]} | #{board[8]}" )
     end
 
   def self.get_mode
     Ui.tprint("Please choose a game type:")
-    Ui.tprint("--------------------------")
-    Ui.tprint("Computer v. Computer - Enter 1")
-    Ui.tprint("Human v. Human - Enter 2")
-    Ui.tprint("Human v. Computer - Enter 3")
+    Ui.tprint("--------------------------".colorize(:light_black))
+    Ui.tprint("Computer v. Computer - Enter" + "1".colorize(:light_blue))
+    Ui.tprint("Human v. Human - Enter" + "2".colorize(:cyan))
+    Ui.tprint("Human v. Computer - Enter" + "3".colorize(:light_cyan))
 
     return Ui.user_input
   end
@@ -104,7 +100,7 @@ module Ui
   def self.tprint(string)
     puts ""
     string.split("" ).each do |character|
-      print character.colorize(:blue)
+      print character
       sleep(0.002)
     end
   end
