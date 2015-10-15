@@ -1,5 +1,6 @@
 ### Tic Tac Toe ###
 By Jacob Moyle, 2015
+
 ---
 
 An unbeatable Tic Tac Toe computer.
